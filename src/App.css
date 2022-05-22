@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+  .nav {
+    @apply font-montserrat text-sm font-semibold uppercase sm:sticky absolute left-0 pl-5 sm:pl-0 py-4 sm:py-0 bg-main w-full sm:w-fit top-10;
+  }
+}
