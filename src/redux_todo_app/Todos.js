@@ -1,45 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { icon } from "./icons";
 import TodoInput from "./TodoInput";
 import TodosHeader from "./TodosHeader";
-const icon = {
-  del: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-5 w-5"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-      />
-    </svg>
-  ),
-  edit: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-5 w-5"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-      />
-    </svg>
-  ),
-};
 
 export default function Todos() {
   const dispatch = useDispatch();
-  const dataList = useSelector((state) => state.todoReducer.todos);
+  const dataList = useSelector((state) => state.todoReducer.todos.reverse());
   const [todoValue, setTodoValue] = useState("");
 
   const [toggle, setToggle] = useState(true);
@@ -107,8 +74,8 @@ export default function Todos() {
   }, [dataList]);
 
   return (
-    <div className="text-white h-screen grid place-items-center">
-      <div className="w-[400px] relative min-h-[500px] bg-slate-600 rounded-md shadow-md shadow-white">
+    <div className="text-white h-screen fixed w-full grid place-items-center bg-slate-700">
+      <div className="w-[85%] md:w-[400px] relative min-h-[500px] bg-slate-600 rounded-md shadow-md shadow-white">
         <TodosHeader />
         <div className="text-center bg-green-600/40 capitalize">
           <p>{Alert}</p>
@@ -153,6 +120,7 @@ export default function Todos() {
           </button>
         </div>
       </div>
+      <h3 className="uppercase font-recursive text-gray-400 text-sm py-2 bottom-12">developed by shipon islam</h3>
     </div>
   );
 }
