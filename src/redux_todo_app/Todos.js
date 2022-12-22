@@ -77,9 +77,9 @@ export default function Todos() {
     <div className="text-white h-screen fixed w-full grid place-items-center bg-slate-700">
       <div className="w-[85%] md:w-[400px] relative min-h-[500px] bg-slate-600 rounded-md shadow-md shadow-white">
         <TodosHeader />
-        <div className="text-center bg-green-600/40 capitalize">
-          <p>{Alert}</p>
-        </div>
+        {Alert&&<div className="text-center bg-green-600/40 capitalize">
+          <p className="py-2">{Alert}</p>
+        </div>}
         <TodoInput
           add={handleTodoAdd}
           todoValue={todoValue}
@@ -111,9 +111,9 @@ export default function Todos() {
               </div>
             ))}
         </div>
-        <div className="py-2 relative left-[38%]">
+        <div className="w-fit mx-auto mb-2">
           <button
-            className=" bg-slate-500 hover:bg-indigo-600 transition-all duration-700 rounded-md px-4  uppercase"
+            className=" bg-slate-500 hover:bg-indigo-600 transition-all duration-700 rounded-md px-5 font-medium uppercase py-[2px]"
             onClick={handleClear}
           >
             clear all
